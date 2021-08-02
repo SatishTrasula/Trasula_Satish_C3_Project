@@ -12,6 +12,8 @@ import org.mockito.quality.Strictness;
 import org.mockito.stubbing.OngoingStubbing;
 
 import java.time.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -82,4 +84,16 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    @Test
+    public void is_item_from_the_menu_is_selected_then_show_total(){
+        //To have an item list and then iterate to derive total
+        List<Item> itemList = new ArrayList<>();
+        Double total = 0.0;
+        for(Item item: selMenu) {
+            if(item.getName().equals(itemName))
+                total = total + item.getPrice();
+        }
+    }
+
 }
