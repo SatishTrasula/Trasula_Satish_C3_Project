@@ -89,7 +89,9 @@ class RestaurantTest {
     public void is_item_from_the_menu_is_selected_then_get_total(){
         //To have an item list and then iterate to derive total
         List<Item> itemList = restaurant.getMenu();
+
         Double total = restaurant.getTotal(itemList);
+
         assertNotEquals(0.0,total);
     }
 

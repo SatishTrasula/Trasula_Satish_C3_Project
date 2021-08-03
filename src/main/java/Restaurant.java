@@ -63,7 +63,6 @@ public class Restaurant {
     }
     
     public void removeFromMenu(String itemName) throws itemNotFoundException {
-
         Item itemToBeRemoved = findItemByName(itemName);
         if (itemToBeRemoved == null)
             throw new itemNotFoundException(itemName);
@@ -76,11 +75,19 @@ public class Restaurant {
                 +"Opening time:"+ openingTime +"\n"
                 +"Closing time:"+ closingTime +"\n"
                 +"Menu:"+"\n"+getMenu());
-
     }
 
     public String getName() {
         return name;
     }
 
+    public Double getTotal(List<Item> menu){
+        List<Item> selMenu = menu;
+
+        Double total = 0.0;
+
+        for(Item item: selMenu) total = total + item.getPrice();
+        return total;
+
+    }
 }
